@@ -120,7 +120,29 @@
           </v-row>
           
           <v-row>
-            <!-- Счётчик - сброс - заказать -->
+            <!-- Общая стоимость пиццы -->
+            <v-col cols="12" sm="6">
+              <span class="text-h4">Цена: 300 </span>руб
+            </v-col>
+
+            <!-- Сброс всех ингредиентов -->
+            <v-col cols="12" sm="3">
+              <v-btn
+                color="primary"
+                rounded
+                block
+                outlined
+              >Сбросить</v-btn>
+            </v-col>
+
+            <!-- Заказать пиццу -->
+            <v-col cols="12" sm="3">
+              <v-btn
+                color="success"
+                rounded
+                block
+              >В корзину</v-btn>
+            </v-col>
           </v-row>
         </v-card>
       </v-col>
