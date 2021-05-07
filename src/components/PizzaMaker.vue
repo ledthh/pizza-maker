@@ -90,7 +90,7 @@
           <v-divider />
           <v-row class="my-0">
             <!-- Ингредиенты -->
-            <v-col cols="12" sm="6">
+            <v-col cols="12" md="6">
               <!-- Состав пиццы -->
               <h3>Ваша пицца состоит из</h3>
               <v-card height="250" color="blue accent-0" flat>
@@ -98,7 +98,7 @@
               </v-card>
             </v-col>
             <v-divider inset vertical />
-            <v-col cols="12" sm="6">
+            <v-col cols="12" md="6">
               <!-- Дополнительные начинки -->
               <h3>Дополнительные начинки</h3>
 
