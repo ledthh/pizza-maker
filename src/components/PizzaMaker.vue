@@ -101,20 +101,21 @@
             <v-col cols="12" sm="6">
               <!-- Дополнительные начинки -->
               <h3>Дополнительные начинки</h3>
+
               <v-tabs grow v-model="tab">
                 <v-tab
                   v-for="item in items"
                   :key="item.tab"
-                  :href="`#tab-${item.tab}`"
                 >
                   <v-icon>{{ item.icon }}</v-icon>
                 </v-tab>
-                <v-tab-items v-model="tab">
-                  <v-tab-item v-for="item in items" :key="item.tab">
-                    Список ингредиентов
-                  </v-tab-item>
-                </v-tab-items>
               </v-tabs>
+
+              <v-tabs-items v-model="tab">
+                <v-tab-item v-for="item in items" :key="item.tab">
+                  Список ингредиентов
+                </v-tab-item>
+              </v-tabs-items>
             </v-col>
           </v-row>
           
