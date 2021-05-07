@@ -5,12 +5,12 @@
         <h1>Заказ пиццы</h1>
       </v-col>
       <v-col cols="12">
-        <v-card rounded="xl" class="pa-2">
+        <v-card rounded="xl" class="pa-8">
           <v-row>
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="5">
               <v-img src="@/assets/img/pizza_example.jpg" aspect-ratio="1" />
             </v-col>
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="7">
               <v-row>
                 <v-col cols="12" class="text-center">
                   <h2>Конструктор пиццы</h2>
@@ -74,8 +74,7 @@
                       v-for="sauce in sauces"
                       :key="sauce.id"
                     >
-                      <img
-                        height="50"
+                      <v-img
                         :style="{ opacity: sauceOpacity(sauce.id) }"
                         :id="sauce.id"
                         :src="sauce.src"
@@ -88,8 +87,35 @@
             </v-col>
           </v-row>
 
-          <v-row>
+          <v-divider />
+          <v-row class="my-0">
             <!-- Ингредиенты -->
+            <v-col cols="12" sm="6">
+              <!-- Состав пиццы -->
+              <h3>Ваша пицца состоит из</h3>
+              <v-card height="250" color="blue accent-0" flat>
+                
+              </v-card>
+            </v-col>
+            <v-divider inset vertical />
+            <v-col cols="12" sm="6">
+              <!-- Дополнительные начинки -->
+              <h3>Дополнительные начинки</h3>
+              <v-tabs grow v-model="tab">
+                <v-tab
+                  v-for="item in items"
+                  :key="item.tab"
+                  :href="`#tab-${item.tab}`"
+                >
+                  <v-icon>{{ item.icon }}</v-icon>
+                </v-tab>
+                <v-tab-items v-model="tab">
+                  <v-tab-item v-for="item in items" :key="item.tab">
+                    Список ингредиентов
+                  </v-tab-item>
+                </v-tab-items>
+              </v-tabs>
+            </v-col>
           </v-row>
           
           <v-row>
@@ -114,7 +140,13 @@ export default {
       sauces: source.sauces,
       dough: source.dough,
       sizes: source.sizes,
-      ingredients: source.ingredients
+      ingredients: source.ingredients,
+      tab: null,
+      items: [
+        { tab: 'meat', icon: 'mdi-food-steak' },
+        { tab: 'veg', icon: 'mdi-fruit-pineapple' },
+        { tab: 'cheese', icon: 'mdi-cheese' }
+      ]
     }
   },
   computed: {
