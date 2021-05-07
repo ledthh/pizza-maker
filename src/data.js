@@ -108,70 +108,70 @@ export default {
         id: 'black_olives',
         name: 'Маслины',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/black_olives.jpg'),
+        src: require('@/assets/img/ingredients/veg/black_olives.jpg'),
         count: 0
       },
       {
         id: 'champignon',
         name: 'Шампиньоны',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/champignon.jpg'),
+        src: require('@/assets/img/ingredients/veg/champignon.jpg'),
         count: 0
       },
       {
         id: 'corn',
         name: 'Кукуруза',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/corn.jpg'),
+        src: require('@/assets/img/ingredients/veg/corn.jpg'),
         count: 0
       },
       {
         id: 'cucumber',
         name: 'Огурец маринованый',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/cucumber.jpg'),
+        src: require('@/assets/img/ingredients/veg/cucumber.jpg'),
         count: 0
       },
       {
         id: 'olives',
         name: 'Оливки',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/olives.jpg'),
+        src: require('@/assets/img/ingredients/veg/olives.jpg'),
         count: 0
       },
       {
         id: 'onion',
         name: 'Лук',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/onion.jpg'),
+        src: require('@/assets/img/ingredients/veg/onion.jpg'),
         count: 0
       },
       {
         id: 'parsley',
         name: 'Петрушка',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/parsley.jpg'),
+        src: require('@/assets/img/ingredients/veg/parsley.jpg'),
         count: 0
       },
       {
         id: 'pepper',
         name: 'Перец болгарский',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/pepper.jpg'),
+        src: require('@/assets/img/ingredients/veg/pepper.jpg'),
         count: 0
       },
       {
         id: 'semsame',
         name: 'Кунжут',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/semsame.jpg'),
+        src: require('@/assets/img/ingredients/veg/semsame.jpg'),
         count: 0
       },
       {
         id: 'tomatoe',
         name: 'Помидор',
         price: 30,
-        src: require('@/assets/img/ingredients/муп/tomatoe.jpg'),
+        src: require('@/assets/img/ingredients/veg/tomatoe.jpg'),
         count: 0
       },
     ],

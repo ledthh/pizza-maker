@@ -205,7 +205,22 @@ export default {
       });
 
       return selected;
-    }
+    },
+    meatItems() {
+      return this.ingredients.meat.filter((item) => {
+        return item.count === 0;
+      });
+    },
+    vegItems() {
+      return this.ingredients.veg.filter((item) => {
+        return item.count === 0;
+      });
+    },
+    cheeseItems() {
+      return this.ingredients.cheese.filter((item) => {
+        return item.count === 0;
+      });
+    },
   },
   methods: {
     doughOpacity(item) {
