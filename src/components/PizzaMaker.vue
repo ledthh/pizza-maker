@@ -113,7 +113,31 @@
 
               <v-tabs-items v-model="tab">
                 <v-tab-item v-for="item in items" :key="item.tab">
-                  Список ингредиентов
+                  <v-row no-gutters>
+                    <v-col
+                      cols="4"
+                      sm="2"
+                      md="3"
+                      v-for="product in item.products"
+                      :key="product.id"
+                    >
+                      <v-card hover height="180" class="text-center ma-1">
+                        <img
+                          :src="product.src"
+                          class="product-img"
+                        />
+                        <div class="text-caption">{{ product.name }}</div>
+                        <div>{{ product.price }} руб</div>
+                        <v-row>
+                          <v-col>
+                            <v-btn x-small fab depressed color="success">
+                              <v-icon>mdi-plus</v-icon>
+                            </v-btn>
+                          </v-col>
+                        </v-row>
+                      </v-card>
+                    </v-col>
+                  </v-row>
                 </v-tab-item>
               </v-tabs-items>
             </v-col>
@@ -164,12 +188,7 @@ export default {
       dough: source.dough,
       sizes: source.sizes,
       ingredients: source.ingredients,
-      tab: null,
-      items: [
-        { tab: 'meat', icon: 'mdi-food-steak' },
-        { tab: 'veg', icon: 'mdi-fruit-pineapple' },
-        { tab: 'cheese', icon: 'mdi-cheese' }
-      ]
+      tab: null
     }
   },
   computed: {
@@ -221,6 +240,25 @@ export default {
         return item.count === 0;
       });
     },
+    items() {
+      return [
+        {
+          tab: 'meat',
+          icon: 'mdi-food-steak',
+          products: this.meatItems
+        },
+        {
+          tab: 'veg',
+          icon: 'mdi-fruit-pineapple',
+          products: this.vegItems
+        },
+        {
+          tab: 'cheese',
+          icon: 'mdi-cheese',
+          products: this.cheeseItems
+        }
+      ];
+    }
   },
   methods: {
     doughOpacity(item) {
@@ -244,3 +282,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.product-img {
+  height: 75px;
+  width: 100%;
+  background-size: 50px 50px;
+  background-repeat: no-repeat;
+  background-position: 50% 0px;
+}
+</style>
