@@ -196,7 +196,7 @@
           <v-row>
             <!-- Общая стоимость пиццы -->
             <v-col cols="12" sm="6">
-              <span class="text-h4">Цена: 300 </span>руб
+              <span class="text-h4">Цена: {{ summary }} </span>руб
             </v-col>
 
             <!-- Сброс всех ингредиентов -->
@@ -313,6 +313,21 @@ export default {
           products: this.cheeseItems
         }
       ];
+    },
+    summary() {
+      let result = 0;
+      
+      this.sizes.forEach((item) => {
+        if (item.size === this.selectedSize) {
+          result += item.price;
+        }
+      })
+
+      this.myProducts.forEach((item) => {
+        result += item.price * item.count;
+      })
+
+      return result;
     }
   },
   methods: {
