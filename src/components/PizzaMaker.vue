@@ -206,6 +206,7 @@
                 rounded
                 block
                 outlined
+                @click="resetIngredients()"
               >Сбросить</v-btn>
             </v-col>
 
@@ -355,6 +356,11 @@ export default {
     },
     removeIngredient(item) {
       item.count -= 1;
+    },
+    resetIngredients() {
+      this.myProducts.forEach((item) => {
+        item.count = 0;
+      })
     }
   }
 }
