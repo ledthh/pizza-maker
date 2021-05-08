@@ -93,10 +93,54 @@
             <v-col cols="12" md="6">
               <!-- Состав пиццы -->
               <h3>Ваша пицца состоит из</h3>
-              <v-card height="250" color="blue accent-0" flat>
-                
-              </v-card>
+              
+              <v-row no-gutters>
+                <v-col
+                  cols="4"
+                  sm="2"
+                  md="3"
+                  v-for="product in myProducts"
+                  :key="`my-${product.id}`"
+                >
+                  <v-card hover height="180" class="text-center ma-1">
+                    <div class="count rounded-circle success white--text text-center">
+                      {{ product.count }}
+                    </div>
+                    <img
+                      :src="product.src"
+                      class="product-img"
+                    />
+                    <div class="text-caption">{{ product.name }}</div>
+                    <div>{{ product.price }} руб</div>
+                    <v-row>
+                      <v-col cols="6">
+                        <v-btn
+                          x-small
+                          fab
+                          depressed
+                          color="error"
+                          @click="removeIngredient(product)"
+                        >
+                          <v-icon>mdi-minus</v-icon>
+                        </v-btn>
+                      </v-col>
+                      <v-col cols="6">
+                        <v-btn
+                          x-small
+                          fab
+                          depressed
+                          color="success"
+                          @click="addIngredient(product)"
+                        >
+                          <v-icon>mdi-plus</v-icon>
+                        </v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-card>
+                </v-col>
+              </v-row>
             </v-col>
+
             <v-divider inset vertical />
             <v-col cols="12" md="6">
               <!-- Дополнительные начинки -->
@@ -130,7 +174,13 @@
                         <div>{{ product.price }} руб</div>
                         <v-row>
                           <v-col>
-                            <v-btn x-small fab depressed color="success">
+                            <v-btn
+                              x-small
+                              fab
+                              depressed
+                              color="success"
+                              @click="addIngredient(product)"
+                            >
                               <v-icon>mdi-plus</v-icon>
                             </v-btn>
                           </v-col>
@@ -240,6 +290,11 @@ export default {
         return item.count === 0;
       });
     },
+    myProducts() {
+      return [...this.ingredients.meat, ...this.ingredients.veg, ...this.ingredients.cheese].filter((item) => {
+        return item.count > 0;
+      });
+    },
     items() {
       return [
         {
@@ -279,6 +334,13 @@ export default {
     changeSauce(item) {
       this.currentSauce = item;
     },
+    addIngredient(item) {
+      if (item.count >= 20) return;
+      item.count += 1;
+    },
+    removeIngredient(item) {
+      item.count -= 1;
+    }
   }
 }
 </script>
@@ -290,5 +352,12 @@ export default {
   background-size: 50px 50px;
   background-repeat: no-repeat;
   background-position: 50% 0px;
+}
+
+.count {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  min-width: 25px;
 }
 </style>
