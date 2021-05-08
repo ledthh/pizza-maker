@@ -1,5 +1,7 @@
 # pizza-maker
 
+[Preview](https://ledthh.github.io/pizza-maker/) on GitHub Pages
+
 ## Project setup
 ```
 npm install
